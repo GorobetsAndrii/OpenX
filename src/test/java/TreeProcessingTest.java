@@ -32,7 +32,12 @@ public class TreeProcessingTest {
 
     @Test
     public void countMedianOfTree() throws EmptyTreeException {
-        Assert.assertEquals(5, tpr.median(tree));
+        Assert.assertEquals(3, tpr.median(tree));
+    }
+
+    @Test
+    public void countForRightAndLeftTree() throws EmptyTreeException {
+        Assert.assertEquals((Integer)75,tpr.avg(tree.getRight()));
     }
 
     @Test
@@ -50,7 +55,12 @@ public class TreeProcessingTest {
     @Test
     public void addElementAndTryToCountMedian() throws EmptyTreeException {
         tree.add(100);
-        Assert.assertEquals(5,tpr.median(tree));
+        Assert.assertEquals(4,tpr.median(tree));
+    }
+
+    @Test
+    public void medianForLeftTree() throws EmptyTreeException{
+        Assert.assertEquals(3,tpr.median(tree.getLeft()));
     }
 
     @Test(expected = EmptyTreeException.class)

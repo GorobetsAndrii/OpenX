@@ -12,13 +12,15 @@ public class Main {
         tree.add(4);
         tree.add(5);
         tree.add(100);
-        tree.delete(50);
+        //tree.delete(50);
 
         TreeProcessing tpr = new TreeProcessing();
         try {
             System.out.println(tpr.treeSum(tree));
             System.out.println(tpr.avg(tree));
             System.out.println(tpr.median(tree));
+            System.out.println(tpr.median(tree.getLeft()));
+
         }catch (EmptyTreeException e){
             e.printStackTrace();
         }

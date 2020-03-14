@@ -26,20 +26,26 @@ public class TreeProcessing {
     public int median(Tree tree) throws EmptyTreeException {
         if(tree.getCounter() == 0) throw new EmptyTreeException();
 
-        if (tree.getLeft() == null && tree.getRight() == null) {
+        if (tree.getCounter() == 1) {
             return tree.getValue();
         }
 
-        if (tree.getLeft() != null && tree.getRight() != null) {
+        int counter = tree.getCounter()/2;
+        return stepsToMedian(tree,counter);
+    }
+
+    private int stepsToMedian(Tree tree, int count){
+        if(count == 0) return tree.getValue();
+        if(tree.getLeft() != null && tree.getRight() != null) {
             if (tree.getLeft().getCounter() == tree.getRight().getCounter()) {
                 return tree.getValue();
             } else {
-                return tree.getLeft().getCounter() > tree.getRight().getCounter() ? median(tree.getLeft()) : median(tree.getRight());
+                return tree.getLeft().getCounter() > tree.getRight().getCounter() ? stepsToMedian(tree.getLeft(),--count) : stepsToMedian(tree.getRight(),--count);
             }
         } else if (tree.getLeft() == null) {
-            return median(tree.getRight());
+            return stepsToMedian(tree.getRight(),--count);
         } else {
-            return median(tree.getLeft());
+            return stepsToMedian(tree.getLeft(),--count);
         }
     }
 
