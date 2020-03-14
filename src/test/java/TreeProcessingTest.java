@@ -54,9 +54,23 @@ public class TreeProcessingTest {
     }
 
     @Test(expected = EmptyTreeException.class)
-    public void shouldThrowEmptyTree() throws EmptyTreeException {
+    public void medianShouldThrowEmptyTree() throws EmptyTreeException {
         tree = new Tree();
         tpr.median(tree);
+        Assert.fail("This method should throw EmptyTree");
+    }
+
+    @Test(expected = EmptyTreeException.class)
+    public void avgShouldThrowEmptyTree() throws EmptyTreeException {
+        tree = new Tree();
+        tpr.avg(tree);
+        Assert.fail("This method should throw EmptyTree");
+    }
+
+    @Test(expected = EmptyTreeException.class)
+    public void treeSumShouldThrowEmptyTree() throws EmptyTreeException {
+        tree = new Tree();
+        tpr.treeSum(tree);
         Assert.fail("This method should throw EmptyTree");
     }
 }

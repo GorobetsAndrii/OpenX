@@ -12,6 +12,7 @@ public class Main {
         tree.add(4);
         tree.add(5);
         tree.add(100);
+        tree.delete(50);
 
         TreeProcessing tpr = new TreeProcessing();
         try {
@@ -21,7 +22,5 @@ public class Main {
         }catch (EmptyTreeException e){
             e.printStackTrace();
         }
-
-        tree = tree.search(7);
     }
 }
